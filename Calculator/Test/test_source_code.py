@@ -3,7 +3,7 @@ import pytest
 
 # Calculator/Test/test_basic_calculator.py
 
-from Calculator.Source_Code.basic_calculator import calculate as calculate_basic
+from Source_Code.basic_calculator import calculate as calculate_basic
 
 
 def test_calculate_basic_addition():
@@ -15,7 +15,7 @@ def test_calculate_basic_subtraction():
 
 # Calculator/Test/test_complex_numbers.py
 
-from Calculator.Source_Code.complex_numbers import add_complex, multiply_complex
+from Source_Code.complex_numbers import add_complex, multiply_complex
 
 def test_add_complex():
     assert add_complex(1, 2, 3, 4) == (4, 6)
@@ -26,7 +26,7 @@ def test_multiply_complex():
 
 # Calculator/Test/test_matrix_operations.py
 
-from Calculator.Source_Code.matrix_operations import calculate as calculate_matrix
+from Source_Code.matrix_operations import calculate as calculate_matrix
 
 def test_calculate_matrix_addition():
     # Define input matrices
@@ -53,7 +53,7 @@ def test_calculate_matrix_multiplication():
 
 # Calculator/Test/test_symbolic_computation.py
 
-from v.Source_Code.symbolic_computation import differentiate, integrate_expression
+from Source_Code.symbolic_computation import differentiate, integrate_expression
 
 def test_differentiate():
     assert differentiate('x**2', 'x') == '2*x'
@@ -64,7 +64,7 @@ def test_integrate_expression():
 
 # Calculator/Test/test_unit_conversion.py
 
-from Calculator.Source_Code.unit_conversion import convert_units
+from Source_Code.unit_conversion import convert_units
 
 def test_convert_units_length():
     data = {'from_unit': 'meters', 'to_unit': 'feet', 'value': '10'}
