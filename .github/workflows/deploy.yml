@@ -21,5 +21,5 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Build Docker image
-        run: docker build -t ADVCalculator:latest .
+        run: docker build -t advCalculator:latest .
         working-directory: Calculator
