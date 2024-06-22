@@ -15,7 +15,7 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire project directory into the container at /app
-COPY . /app/
+COPY .. /app/
 
 # Expose port 5000 to allow communication to/from server
 EXPOSE 5000
