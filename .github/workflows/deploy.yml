@@ -17,9 +17,7 @@ jobs:
         run: python -m pip install -r Calculator/requirements.txt
 
       - name: Run tests
-        run: pytest Calculator/Test
-        env:
-          PYTHONPATH: ${{ github.workspace }}/Calculator
+        run: pytest Test/test_source_code.py
         working-directory: ${{ github.workspace }}
 
       - name: Build Docker image
