@@ -16,12 +16,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r Calculator/requirements.txt
 
-      - name: Set up PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:${{ github.workspace }}/Calculator" >> $GITHUB_ENV
-
       - name: Run tests
-        run: pytest Test/test_source_code.py
-        working-directory: Calculator
+        run: pytest Calculator/Test/test_source_code.py
+        working-directory: ${{ github.workspace }}
 
       - name: Build Docker image
         run: docker build -t ADVCalculator:latest .
