@@ -1,0 +1,95 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #142850, #27496d, #0c7b93); /* Dark blue gradient background */
+    color: #eee; /* Light text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background: rgba(51, 51, 51, 0.9); /* Dark semi-transparent background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ddd; /* Light heading color */
+}
+
+.conversion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.conversion-form input,
+.conversion-form select,
+.conversion-form button {
+    padding: 15px;
+    border: 1px solid #888; /* Dark gray border */
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #444; /* Darker background */
+    color: #eee; /* Light text color */
+}
+
+.conversion-form input:focus,
+.conversion-form select:focus,
+.conversion-form button:focus {
+    border-color: #ff7e5f; /* Lighter orange border on focus */
+}
+
+.conversion-form button {
+    background: #ff7e5f; /* Light orange background */
+    border: none;
+    cursor: pointer;
+}
+
+.conversion-form button:hover {
+    background: #feb47b; /* Darker orange on hover */
+}
+
+#conversion_result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ddd; /* Light text color */
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #444; /* Darker background */
+    color: #eee; /* Light text color */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background: #333; /* Darker background on hover */
+}

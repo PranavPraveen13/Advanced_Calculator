@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complex Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/static/complex_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Complex Calculator</h1>
+
+        <div class="calculator-section">
+            <div class="left-section">
+                <h2>Calculation</h2>
+                <!-- Calculation part content -->
+                <form id="complex_calculator_form">
+                    <div class="form-row">
+                        <label for="real_part1">Real Part 1:</label>
+                        <input type="text" id="real_part1" placeholder="Enter real part">
+                    </div>
+                    <div class="form-row">
+                        <label for="imaginary_part1">Imaginary Part 1:</label>
+                        <input type="text" id="imaginary_part1" placeholder="Enter imaginary part">
+                    </div>
+                    <div class="form-row">
+                        <label for="real_part2">Real Part 2:</label>
+                        <input type="text" id="real_part2" placeholder="Enter real part">
+                    </div>
+                    <div class="form-row">
+                        <label for="imaginary_part2">Imaginary Part 2:</label>
+                        <input type="text" id="imaginary_part2" placeholder="Enter imaginary part">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="operation">Operation:</label>
+                        <select id="operation">
+                            <option value="add">Add</option>
+                            <option value="subtract">Subtract</option>
+                            <option value="multiply">Multiply</option>
+                            <option value="divide">Divide</option>
+                        </select>
+                    </div>
+
+                    <button type="button" onclick="calculateComplex()">Calculate</button>
+                </form>
+
+                <p id="complex_result"></p>
+            </div>
+
+            <div class="right-section">
+                <h2>Graph</h2>
+                <div class="graph-container">
+                    <div id="complex_plane_graph"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="back-button" onclick="goBack()">Back to Homepage</button>
+    </div>
+
+    <script>
+        function calculateComplex() {
+            const real_part1 = parseFloat(document.getElementById('real_part1').value);
+            const imaginary_part1 = parseFloat(document.getElementById('imaginary_part1').value);
+            const real_part2 = parseFloat(document.getElementById('real_part2').value);
+            const imaginary_part2 = parseFloat(document.getElementById('imaginary_part2').value);
+            const operation = document.getElementById('operation').value;
+
+            axios.post('/calculate_complex', {
+                real_part1: real_part1,
+                imaginary_part1: imaginary_part1,
+                real_part2: real_part2,
+                imaginary_part2: imaginary_part2,
+                operation: operation
+            })
+            .then(response => {
+                const resultElement = document.getElementById('complex_result');
+                resultElement.innerText = 'Result: ' + response.data.result_real + ' + ' + response.data.result_imaginary + 'j';
+
+                // Update or render the graph based on the response
+                updateGraph(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('complex_result').innerText = 'Error: ' + error.message;
+            });
+        }
+
+        function updateGraph(data) {
+            const complexNumber1 = { real: parseFloat(data.real_part1), imaginary: parseFloat(data.imaginary_part1) };
+            const complexNumber2 = { real: parseFloat(data.real_part2), imaginary: parseFloat(data.imaginary_part2) };
+            const result = { real: parseFloat(data.result_real), imaginary: parseFloat(data.result_imaginary) };
+
+            const trace1 = {
+                x: [complexNumber1.real],
+                y: [complexNumber1.imaginary],
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    color: 'blue',
+                    size: 12,
+                    line: {
+                        color: 'black',
+                        width: 2
+                    }
+                },
+                name: 'Complex Number 1'
+            };
+
+            const trace2 = {
+                x: [complexNumber2.real],
+                y: [complexNumber2.imaginary],
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    color: 'green',
+                    size: 12,
+                    line: {
+                        color: 'black',
+                        width: 2
+                    }
+                },
+                name: 'Complex Number 2'
+            };
+
+            const trace3 = {
+                x: [result.real],
+                y: [result.imaginary],
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    color: 'red',
+                    size: 12,
+                    line: {
+                        color: 'black',
+                        width: 2
+                    }
+                },
+                name: 'Result'
+            };
+
+            const layout = {
+                title: 'Complex Plane',
+                xaxis: { title: 'Real Part' },
+                yaxis: { title: 'Imaginary Part' }
+            };
+
+            const dataPlot = [trace1, trace2, trace3];
+
+            Plotly.newPlot('complex_plane_graph', dataPlot, layout);
+        }
+
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

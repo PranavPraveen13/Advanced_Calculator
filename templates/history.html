@@ -1,0 +1,79 @@
+<!-- history.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation History</title>
+    <link rel="stylesheet" type="text/css" href="/static/history_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculation History</h1>
+
+        <!-- Back to Homepage Button -->
+        <a href="/" class="back-button">Back to Homepage</a>
+
+        <!-- Filter and Sorting Options -->
+        <div class="options">
+            <form action="/history" method="get" class="filter-form">
+                <label for="calculation_type">Filter by calculation type:</label>
+                <select id="calculation_type" name="calculation_type">
+                    <option value="">All</option>
+                    <option value="basic">Basic</option>
+                    <option value="complex">Complex</option>
+                    <option value="matrix">Matrix</option>
+                    <option value="symbolic">Symbolic</option>
+                    <option value="unit_conversion">Unit Conversion</option>
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+
+            <div class="sorting-options">
+                <span>Sort by:</span>
+                <a href="{{ url_for('history', sort='latest', calculation_type=request.args.get('calculation_type')) }}">Latest</a> |
+                <a href="{{ url_for('history', sort='oldest', calculation_type=request.args.get('calculation_type')) }}">Oldest</a>
+            </div>
+        </div>
+
+        <!-- Display calculations -->
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Details</th>
+                <th>Result</th>
+            </tr>
+            {% for calc in calculations %}
+            <tr>
+                <td>{{ calc.type }}</td>
+                <td>
+                    {% if calc.type == 'basic' %}
+                        Expression: {{ calc.expression }}
+                    {% elif calc.type == 'complex' %}
+                        {% if calc.complex_number1 %}
+                            Complex Number 1: {{ calc.complex_number1.real_part }} + {{ calc.complex_number1.imaginary_part }}i
+                            Operation: {{ calc.operation }}
+                            Complex Number 2: {{ calc.complex_number2.real_part }} + {{ calc.complex_number2.imaginary_part }}i
+                        {% else %}
+                            Complex calculation details not available
+                        {% endif %}
+                    {% elif calc.type == 'matrix' %}
+                        Matrices: {{ calc.matrices }}
+                        Operation: {{ calc.operation }}
+                    {% elif calc.type == 'symbolic' %}
+                        Expression: {{ calc.expression }}
+                        Operation: {{ calc.operation }}
+                    {% elif calc.type == 'unit_conversion' %}
+                        Conversion Data: {{ calc.conversion_data }}
+                    {% else %}
+                        Unknown Calculation Type
+                    {% endif %}
+                </td>
+                <td>{{ calc.result }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

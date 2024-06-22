@@ -1,0 +1,166 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #323232, #1f1f1f); /* Dark gradient background */
+    color: #eee; /* Light text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.container {
+    background: rgba(51, 51, 51, 0.9); /* Dark semi-transparent background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Adjusted width for responsiveness */
+    width: 100%;
+    text-align: center;
+    margin: 20px; /* Added margin */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ddd; /* Light heading color */
+}
+
+.toggle-instructions {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#symbolic-guide {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(68, 68, 68, 0.95); /* Dark semi-transparent background */
+    border: 1px solid #888; /* Dark gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    color: #eee; /* Light text color */
+}
+
+#symbolic-guide h2 {
+    color: #f6d365; /* Light orange heading color */
+    margin-bottom: 10px;
+}
+
+#symbolic-guide ul {
+    margin-bottom: 10px;
+}
+
+#symbolic-guide p {
+    margin-bottom: 10px;
+}
+
+#symbolic-calculator-form {
+    text-align: center; /* Center align the form contents */
+}
+
+#symbolic-calculator-form input[type="text"] {
+    width: calc(100% - 24px); /* Adjusted width to accommodate padding and borders */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #888; /* Dark gray border */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.symbolic-operations {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.symbolic-operations label {
+    margin-right: 20px; /* Add spacing between radio buttons */
+}
+
+#symbolic-calculator-form button {
+    width: calc(100% - 24px); /* Adjusted width to accommodate padding and borders */
+    padding: 12px;
+    background-color: #f6d365; /* Light orange background */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+#symbolic-calculator-form button:hover {
+    background-color: #f5ab35; /* Darker orange on hover */
+}
+
+#symbolic-result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(68, 68, 68, 0.95); /* Dark semi-transparent background */
+    border: 1px solid #888; /* Dark gray border */
+    border-radius: 5px;
+    font-size: 16px;
+    color: #eee; /* Light text color */
+}
+
+.back-button {
+    display: block;
+    width: calc(100% - 24px); /* Adjusted width to accommodate padding and borders */
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #fda085; /* Light peach background */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.back-button:hover {
+    background-color: #f97b5e; /* Darker peach on hover */
+}
+
+.toggle-button {
+    background-color: #f6d365; /* Light orange background */
+    color: #333; /* Dark text color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.toggle-button:hover {
+    background-color: #f5ab35; /* Darker orange on hover */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Adjusted padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjusted font size for smaller screens */
+    }
+
+    #symbolic-calculator-form input[type="text"],
+    #symbolic-calculator-form button,
+    .back-button,
+    .toggle-button {
+        width: 100%; /* Full width for smaller screens */
+    }
+}

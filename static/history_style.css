@@ -1,0 +1,166 @@
+/* history_style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #231942, #3d315b); /* Dark gradient background */
+    margin: 0;
+    padding: 20px;
+    color: #fff; /* White text */
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff; /* White heading */
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-form,
+.sorting-options,
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.filter-form label,
+.sorting-options span,
+.search-form label {
+    margin-right: 10px;
+    color: #fff; /* White text */
+}
+
+.filter-form select,
+.filter-form button,
+.sorting-options a,
+.search-form input,
+.search-form button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    background-color: #5e548e; /* Dark purple */
+    color: #fff; /* White text */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form select {
+    margin-right: 10px;
+}
+
+.filter-form button,
+.sorting-options a,
+.search-form button {
+    padding: 10px 20px;
+}
+
+.filter-form button:hover,
+.sorting-options a:hover,
+.search-form button:hover {
+    background-color: #9f86c0; /* Lighter purple on hover */
+}
+
+.sorting-options a {
+    color: #fff; /* White text */
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sorting-options a:hover {
+    background-color: #9f86c0; /* Lighter purple on hover */
+}
+
+.history {
+    margin-top: 20px;
+    overflow-x: auto; /* Enable horizontal scroll for small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Transparent white border */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #231942; /* Dark purple */
+    color: #fff; /* White text */
+}
+
+tr:nth-child(even) {
+    background-color: #3d315b; /* Darker purple */
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .options {
+        flex-direction: column;
+    }
+
+    .filter-form,
+    .sorting-options,
+    .search-form {
+        margin-bottom: 10px;
+    }
+
+    .history {
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #574b78; /* Darker hover color */
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #5e548e; /* Dark purple */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #9f86c0; /* Lighter purple on hover */
+}

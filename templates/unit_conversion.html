@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Conversion</title>
+    <link rel="stylesheet" type="text/css" href="/static/unit_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Conversion</h1>
+
+        <form id="unit_conversion_form" class="conversion-form">
+            <input type="text" id="conversion_value" placeholder="Enter value" required>
+            <select id="category" onchange="updateUnits()">
+                <option value="" disabled selected>Select category</option>
+                <option value="length">Length</option>
+                <option value="mass">Mass</option>
+                <option value="time">Time</option>
+                <option value="temperature">Temperature</option>
+            </select>
+            <select id="from_unit">
+                <option value="" disabled selected>From unit</option>
+            </select>
+            <select id="to_unit">
+                <option value="" disabled selected>To unit</option>
+            </select>
+            <button type="button" onclick="convertUnits()">Convert</button>
+        </form>
+
+        <p id="conversion_result"></p>
+        <button class="back-button" onclick="goBack()">Back to Homepage</button>
+    </div>
+
+    <script>
+        const units = {
+            length: ['meters', 'centimeters', 'kilometers', 'inches', 'feet'],
+            mass: ['grams', 'kilograms', 'pounds', 'ounces'],
+            time: ['seconds', 'minutes', 'hours', 'days'],
+            temperature: ['celsius', 'fahrenheit', 'kelvin']
+        };
+
+        function updateUnits() {
+            const category = document.getElementById('category').value;
+            const fromUnitSelect = document.getElementById('from_unit');
+            const toUnitSelect = document.getElementById('to_unit');
+
+            fromUnitSelect.innerHTML = '<option value="" disabled selected>From unit</option>';
+            toUnitSelect.innerHTML = '<option value="" disabled selected>To unit</option>';
+
+            if (units[category]) {
+                units[category].forEach(unit => {
+                    fromUnitSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
+                    toUnitSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
+                });
+            }
+        }
+
+        function convertUnits() {
+            const value = document.getElementById('conversion_value').value;
+            const fromUnit = document.getElementById('from_unit').value;
+            const toUnit = document.getElementById('to_unit').value;
+
+            axios.post('/convert_unit', { value: value, from_unit: fromUnit, to_unit: toUnit })
+                .then(response => {
+                    document.getElementById('conversion_result').innerText = 'Result: ' + response.data.result;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('conversion_result').innerText = 'Error: ' + error.message;
+                });
+        }
+
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

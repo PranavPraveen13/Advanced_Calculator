@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbolic Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/static/symbolic_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Symbolic Calculator</h1>
+
+        <div class="toggle-instructions">
+            <button class="toggle-button" onclick="toggleInstructions()">Show/Hide Instructions</button>
+        </div>
+
+        <div id="symbolic-guide" style="display: none;">
+            <h2>Symbolic Calculator Guide</h2>
+            <p><strong>Always differentiated with respect to x</strong></p>
+            <p><strong>Expression Syntax:</strong></p>
+            <ul>
+                <li><strong>Multiplication:</strong> Use <code>*</code> to indicate multiplication. Example: <code>3*x</code></li>
+                <li><strong>Exponentiation:</strong> Use <code>**</code> to indicate exponentiation. Example: <code>x**2</code></li>
+                <li><strong>Addition and Subtraction:</strong> Use <code>+</code> and <code>-</code> respectively.</li>
+                <li><strong>Parentheses:</strong> Use <code>()</code> to group operations.</li>
+            </ul>
+
+            <p><strong>Supported Operations:</strong></p>
+            <ul>
+                <li><strong>Differentiate:</strong> Computes the derivative of the expression.</li>
+                <li><strong>Integrate:</strong> Computes the integral of the expression.</li>
+                <li><strong>Simplify:</strong> Simplifies the expression.</li>
+            </ul>
+
+            <p><strong>Example Usage:</strong></p>
+
+            <p>If you want to differentiate the expression <code>x^2 + 3x + 2</code>, ensure you write it as <code>x**2 + 3*x + 2</code>.</p>
+        </div>
+
+        <form id="symbolic-calculator-form">
+            <input type="text" id="symbolic-expression" placeholder="Enter expression">
+
+            <!-- Radio buttons for operation selection -->
+            <div class="symbolic-operations">
+                <label>
+                    <input type="radio" name="operation" value="differentiate" checked>
+                    Differentiate
+                </label>
+                <label>
+                    <input type="radio" name="operation" value="integrate">
+                    Integrate
+                </label>
+                <label>
+                    <input type="radio" name="operation" value="simplify">
+                    Simplify
+                </label>
+            </div>
+
+            <button type="button" onclick="calculateSymbolic()">Calculate</button>
+        </form>
+
+        <p id="symbolic-result"></p>
+
+        <button class="back-button" onclick="goToMainPage()">Back to Homepage</button>
+    </div>
+
+    <script>
+        // Function to format the expression for better readability
+        function formatExpression(expression) {
+            // Replace ** with ^ for exponentiation
+            expression = expression.replace(/\*\*/g, '^');
+            // Remove * for multiplication when not necessary
+            expression = expression.replace(/([0-9a-zA-Z])\*/g, '$1');
+
+            return expression;
+        }
+
+        // Function to calculate and display the result
+        function calculateSymbolic() {
+            const expression = document.getElementById('symbolic-expression').value;
+            // Get the selected operation
+            const operation = document.querySelector('input[name="operation"]:checked').value;
+
+            axios.post('/calculate_symbolic', { expression: expression, operation: operation })
+                .then(response => {
+                    const resultExpression = formatExpression(response.data.result);
+                    document.getElementById('symbolic-result').innerText = 'Result: ' + resultExpression;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('symbolic-result').innerText = 'Error: ' + error.message;
+                });
+        }
+
+        // Function to toggle visibility of the instructions section
+        function toggleInstructions() {
+            const guideSection = document.getElementById('symbolic-guide');
+            if (guideSection.style.display === 'none') {
+                guideSection.style.display = 'block';
+            } else {
+                guideSection.style.display = 'none';
+            }
+        }
+
+        // Function to navigate back to the main page
+        function goToMainPage() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Calculator</title>
+    <link rel="stylesheet" href="/static/matrix_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Matrix Calculator</h1>
+
+        <div class="matrix-section">
+            <div class="matrix-input">
+                <h2>Matrix 1</h2>
+                <div id="matrix-input-area1">
+                    <!-- Matrix 1 input area will be generated dynamically -->
+                </div>
+                <div class="matrix-size-controls">
+                    <button type="button" onclick="changeMatrixSize('matrix-input-area1', '+')">+</button>
+                    <button type="button" onclick="changeMatrixSize('matrix-input-area1', '-')">-</button>
+                </div>
+            </div>
+
+            <div class="matrix-input">
+                <h2>Matrix 2</h2>
+                <div id="matrix-input-area2">
+                    <!-- Matrix 2 input area will be generated dynamically -->
+                </div>
+                <div class="matrix-size-controls">
+                    <button type="button" onclick="changeMatrixSize('matrix-input-area2', '+')">+</button>
+                    <button type="button" onclick="changeMatrixSize('matrix-input-area2', '-')">-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="matrix-options">
+            <h2>Select Operation:</h2>
+            <div class="operation-selection">
+                <input type="radio" id="addition" name="operation" value="add">
+                <label for="addition">Addition</label>
+
+                <input type="radio" id="subtraction" name="operation" value="subtract">
+                <label for="subtraction">Subtraction</label>
+
+                <input type="radio" id="multiplication" name="operation" value="multiply">
+                <label for="multiplication">Multiplication</label>
+
+                <!-- Add more radio inputs as needed -->
+            </div>
+        </div>
+
+        <button type="button" onclick="calculateMatrix()" class="calculate-button">Calculate</button>
+        <button onclick="goBack()" class="back-button">Back to Homepage</button>
+
+        <div class="matrix-output">
+            <h2>Result Matrix</h2>
+            <div id="matrix-result">
+                <!-- Resultant matrix will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let matrixSize1 = 2; // Initial size of Matrix 1
+        let matrixSize2 = 2; // Initial size of Matrix 2
+
+        function generateMatrixInputs(matrixSize, containerId) {
+            const matrixInputArea = document.getElementById(containerId);
+            matrixInputArea.innerHTML = '';
+
+            // Generate matrix input fields
+            for (let i = 0; i < matrixSize; i++) {
+                const row = document.createElement('div');
+                row.className = 'matrix-row';
+                for (let j = 0; j < matrixSize; j++) {
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.className = 'matrix-cell';
+                    input.setAttribute('placeholder', '0');
+                    input.value = '0'; // Set default value to 0
+                    row.appendChild(input);
+                }
+                matrixInputArea.appendChild(row);
+            }
+        }
+
+        function changeMatrixSize(containerId, action) {
+            const maxMatrixSize = 10; // Maximum matrix size allowed
+            let currentMatrixSize;
+
+            if (containerId === 'matrix-input-area1') {
+                currentMatrixSize = matrixSize1;
+            } else if (containerId === 'matrix-input-area2') {
+                currentMatrixSize = matrixSize2;
+            } else {
+                return; // Exit if containerId is invalid
+            }
+
+            if (action === '+' && currentMatrixSize < maxMatrixSize) {
+                currentMatrixSize++;
+            } else if (action === '-' && currentMatrixSize > 1) {
+                currentMatrixSize--;
+            } else {
+                return; // Exit if action is invalid
+            }
+
+            if (containerId === 'matrix-input-area1') {
+                matrixSize1 = currentMatrixSize;
+            } else if (containerId === 'matrix-input-area2') {
+                matrixSize2 = currentMatrixSize;
+            }
+
+            generateMatrixInputs(currentMatrixSize, containerId);
+        }
+
+        function calculateMatrix() {
+            const matrix1 = getMatrixValues('matrix-input-area1');
+            const matrix2 = getMatrixValues('matrix-input-area2');
+            const operation = document.querySelector('input[name="operation"]:checked');
+
+            if (!operation) {
+                alert("Please select an operation");
+                return;
+            }
+
+            axios.post('/calculate_matrix', { operation: operation.value, matrices: [matrix1, matrix2] })
+                .then(response => {
+                    displayMatrix(response.data.result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred during calculation');
+                });
+        }
+
+        function getMatrixValues(containerId) {
+            const matrixValues = [];
+            const matrixRows = document.getElementById(containerId).getElementsByClassName('matrix-row');
+            for (let row of matrixRows) {
+                const rowData = [];
+                const cells = row.getElementsByClassName('matrix-cell');
+                for (let cell of cells) {
+                    rowData.push(Number(cell.value));
+                }
+                matrixValues.push(rowData);
+            }
+            return matrixValues;
+        }
+
+        function displayMatrix(matrix) {
+            const matrixResult = document.getElementById('matrix-result');
+            matrixResult.innerHTML = '';
+
+            matrix.forEach(row => {
+                const matrixRow = document.createElement('div');
+                matrixRow.className = 'matrix-row';
+                row.forEach(cell => {
+                    const matrixCell = document.createElement('div');
+                    matrixCell.className = 'matrix-cell';
+                    matrixCell.textContent = cell;
+                    matrixRow.appendChild(matrixCell);
+                });
+                matrixResult.appendChild(matrixRow);
+            });
+        }
+
+        function goBack() {
+            window.location.href = '/';
+        }
+
+        // Initial generation of matrix inputs
+        generateMatrixInputs(matrixSize1, 'matrix-input-area1');
+        generateMatrixInputs(matrixSize2, 'matrix-input-area2');
+    </script>
+</body>
+</html>

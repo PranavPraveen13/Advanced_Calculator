@@ -1,0 +1,116 @@
+/* index_style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e, #7f8c8d); /* Gradient background with darker colors */
+    background-size: 600% 600%; /* Background size for animation */
+    animation: gradientAnimation 15s ease infinite; /* Animation for gradient */
+    color: #ffffff; /* White text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 1200px; /* Maximum width for the container */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Center align contents */
+    margin: 20px; /* Added margin */
+}
+
+h1 {
+    color: #ffffff; /* White heading */
+    margin-bottom: 30px; /* Increased margin */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px; /* Increased margin */
+}
+
+li {
+    margin: 20px;
+    flex: 1 0 calc(33.33% - 40px); /* Flexible width for responsive layout */
+    max-width: calc(33.33% - 40px); /* Maximum width for each button */
+    position: relative;
+}
+
+a {
+    display: block;
+    width: 100%; /* Full width for buttons */
+    padding: 20px;
+    background-color: #4a4a4a; /* Darker gray background */
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow for button */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    color: #ffffff; /* White text */
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    padding: 10px; /* Padding for description */
+    font-size: 14px; /* Font size for description */
+}
+
+a:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    background-color: #555555; /* Darker background on hover */
+    z-index: 1;
+}
+
+a:hover span {
+    opacity: 1; /* Show description on hover */
+}
+
+@media (max-width: 1024px) {
+    li {
+        flex: 1 0 calc(50% - 40px); /* Two columns on smaller screens */
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    li {
+        flex: 1 0 calc(100% - 40px); /* Single column on mobile screens */
+        max-width: calc(100% - 40px);
+    }
+}

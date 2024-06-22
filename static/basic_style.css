@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #001219, #005f73, #0a9396, #94d2bd, #e9d8a6); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    width: 400px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #b0b0b0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-screen {
+    width: calc(100% - 40px); /* Adjusted to account for padding */
+    max-width: 100%;
+    height: 100px; /* Increased height */
+    border: none;
+    background-color: #606060;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 2rem; /* Font size adjusted */
+    color: #fff;
+    margin-bottom: 25px; /* Increased margin-bottom for larger gap */
+    border-radius: 10px;
+    margin: 0 auto; /* Center align the calculator screen */
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 20px; /* Increased margin-top for a gap between screen and buttons */
+}
+
+.calculator-keys button {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.calculator-keys .equal-sign {
+    width: 100%;
+    height: 80px;
+    border-radius: 20px;
+    grid-column: span 2;
+}
+
+.calculator-keys button:hover {
+    opacity: 0.9;
+}
+
+.calculator-keys .number {
+    background-color: #325b8c; /* Lighter navy blue for numerical buttons */
+}
+
+.calculator-keys .operator {
+    background-color: #003366;
+}
+
+.calculator-keys .equal-sign {
+    background-color: #ff8c00;
+}
+
+.calculator-keys .clear {
+    background-color: #b71c1c;
+}
+
+/* Existing styles remain unchanged */
+
+.back-button {
+    position: fixed; /* Fixed positioning for the back button */
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #003366; /* Dark blue background color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Font size adjusted */
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #001219; /* Darker blue on hover */
+}
+
+

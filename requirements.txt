@@ -1,0 +1,5 @@
+pytest~=8.2.2
+Flask~=3.0.3
+pymongo~=4.7.3
+numpy~=2.0.0
+sympy~=1.12.1
