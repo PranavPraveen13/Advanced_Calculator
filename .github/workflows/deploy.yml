@@ -18,6 +18,8 @@ jobs:
 
       - name: Run tests
         run: pytest Calculator/Test
+        env:
+          PYTHONPATH: ${{ github.workspace }}/Calculator
         working-directory: ${{ github.workspace }}
 
       - name: Build Docker image
