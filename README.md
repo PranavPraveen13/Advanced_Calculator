@@ -1,6 +1,6 @@
 # Advanced Calculator App
 
-Welcome to the Advanced Calculator App! This Python-based application offers users a comprehensive tool for performing a wide range of calculations, including basic arithmetic, complex number operations, graph plotting, matrix manipulations, symbolic computations (such as differentiation, integration, and simplification), unit conversions, and more. The app also maintains a history of all calculations for easy reference. Built using Python for backend logic, JavaScript for the frontend, and Flask as the web framework, the app integrates seamlessly with MongoDB to store calculation histories.
+Welcome to the Advanced Calculator App! This Python-based application offers users a comprehensive tool for performing a wide range of calculations, including basic arithmetic, complex number operations with graph plotting, matrix manipulations, symbolic computations (such as differentiation, integration, and simplification), unit conversions, and more. The app also maintains a history of all calculations for easy reference. Built using Python for backend logic, JavaScript for the frontend, and Flask as the web framework, the app integrates seamlessly with MongoDB to store calculation histories.
 
 ## Installation
 
