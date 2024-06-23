@@ -13,7 +13,7 @@ Welcome to the Advanced Calculator App! This Python-based application offers use
 pip install -r requirements.txt
 ```
 
-## How to Play
+## How to Run
 
 1. Run the app using the following command:
 
