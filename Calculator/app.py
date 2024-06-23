@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient, DESCENDING, ASCENDING
 from Calculator.Source_Code import complex_numbers
-from Calculator.Source_Code import calculate as calculate_basic
+from Calculator.Source_Code.basic_calculator import calculate as calculate_basic
 from Calculator.Source_Code.matrix_operations import calculate as calculate_matrix
-from Calculator.Source_Code import differentiate, integrate_expression, simplify_expression
-from Calculator.Source_Code import convert_units
+from Calculator.Source_Code.symbolic_computation import differentiate, integrate_expression, simplify_expression
+from Calculator.Source_Code.unit_conversion import convert_units
 
 app = Flask(__name__)
 

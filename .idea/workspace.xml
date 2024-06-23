@@ -4,33 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ca94d24-46d6-49d5-b105-bff932aee874" name="Changes" comment="All Files">
+    <list default="true" id="7ca94d24-46d6-49d5-b105-bff932aee874" name="Changes" comment="Updated test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/basic_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/basic_calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/complex_numbers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/complex_numbers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/matrix_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/matrix_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/symbolic_computation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/symbolic_computation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source_Code/unit_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Source_Code/unit_conversion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/test_source_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/Test/test_source_code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/basic_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/complex_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/complex_styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/history_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/history_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/index_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/index_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/matrix_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/matrix_styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/symbolic_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/symbolic_styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/unit_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/static/unit_styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/basic_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/basic_calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/complex_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/complex_calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/matrix_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/matrix_calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/symbolic_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/symbolic_calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/unit_conversion.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/unit_conversion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/basic_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/basic_calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/complex_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/complex_calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/matrix_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/matrix_calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculator/templates/symbolic_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator/templates/symbolic_calculator.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.Calculator/Dockerfile.executor": "Run",
     "Docker.Dockerfile.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Python tests.Python tests for test_source_code.test_calculate_matrix_multiplication.executor": "Run",
@@ -81,10 +64,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\prana\PycharmProjects\Calculator\Calculator" />
       <recent name="C:\Users\prana\PycharmProjects\Calculator" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <option name="ENV_FILES" value="" />
@@ -108,6 +92,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Calculator/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Calculator/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -117,11 +109,15 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -150,8 +146,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Docker.Calculator/Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Python tests.Python tests for Calculator.Test.test_source_code.test_calculate_matrix_multiplication" />
       </list>
@@ -174,7 +171,8 @@
       <updated>1718743235667</updated>
       <workItem from="1718743245937" duration="4865000" />
       <workItem from="1718795731203" duration="15288000" />
-      <workItem from="1719055726055" duration="17397000" />
+      <workItem from="1719055726055" duration="22510000" />
+      <workItem from="1719162238289" duration="704000" />
     </task>
     <task id="LOCAL-00001" summary="All Files">
       <option name="closed" value="true" />
@@ -192,20 +190,57 @@
       <option name="project" value="LOCAL" />
       <updated>1719081699770</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactored">
+      <option name="closed" value="true" />
+      <created>1719082370635</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719082370635</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated test">
+      <option name="closed" value="true" />
+      <created>1719083923218</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719083923218</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated test">
+      <option name="closed" value="true" />
+      <created>1719084306025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719084306028</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="All Files" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Files" />
+    <MESSAGE value="Refactored" />
+    <MESSAGE value="Updated test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Calculator$.coverage" NAME=" Coverage Results" MODIFIED="1719072244453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Calculator$.coverage" NAME=" Coverage Results" MODIFIED="1719088099507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Calculator/Test" />
     <SUITE FILE_PATH="coverage/Calculator$complex_numbers.coverage" NAME="complex_numbers Coverage Results" MODIFIED="1718745678952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Source_Code" />
-    <SUITE FILE_PATH="coverage/Calculator$app.coverage" NAME="app Coverage Results" MODIFIED="1719078634996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Calculator$app.coverage" NAME="app Coverage Results" MODIFIED="1719162908391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Calculator$test_source_code.coverage" NAME="test_source_code Coverage Results" MODIFIED="1719071780345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
   </component>
 </project>
